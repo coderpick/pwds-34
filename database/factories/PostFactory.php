@@ -23,7 +23,7 @@ class PostFactory extends Factory
             'title' => fake()->sentence(),
             'slug' => fake()->slug(),
             'description' => fake()->paragraph(),
-            'image' => fake()->imageUrl(),
+            'image' => 'https://placehold.co/600x400',
             'views' => fake()->randomNumber(),
             'is_featured' => fake()->boolean(),
             'status' => fake()->randomElement(['draft', 'published']),

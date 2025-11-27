@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/dashboard';
+    protected $redirectTo;
 
     /**
      * Create a new controller instance.
@@ -37,6 +37,11 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
+        if (auth()->check() && auth()->user()->role == 'admin') {
+            $this->redirectTo = route('admin.dashboard');
+        } else {
+            $this->redirectTo = route('home');
+        }
         $this->middleware('guest');
     }
 

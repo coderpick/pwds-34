@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('home');
-
-Route::resource('users', UserController::class);
+/* custom routes */
+Route::group(['middleware' => ['auth']], function () {
+    /* authenticate routes */
+});

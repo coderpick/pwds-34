@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use Laravel\Ui\Presets\Bootstrap;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Eloquent\Attributes\Boot;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +22,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        /* use bootstrap pagination */
+          Paginator::useBootstrapFive();
     }
 }
